@@ -1,0 +1,45 @@
+# Copyright 2025 CNRS
+# Author: Florent Lamiraux
+#
+cmake_minimum_required(VERSION 3.10)
+
+set(CXX_DISABLE_WERROR TRUE)
+set(PROJECT_NAME booster_robot)
+set(PROJECT_DESCRIPTION "Model of the Booster T1 robot")
+set(PROJECT_URL "")
+set(PROJECT_USE_CMAKE_EXPORT TRUE)
+
+include(cmake/base.cmake)
+include(cmake/python.cmake)
+
+compute_project_args(PROJECT_ARGS LANGUAGES CXX)
+project(${PROJECT_NAME} ${PROJECT_ARGS})
+
+SET(LIBRARY_NAME ${PROJECT_NAME})
+ADD_LIBRARY(${LIBRARY_NAME}
+  INTERFACE
+  )
+INSTALL(TARGETS ${LIBRARY_NAME}
+  EXPORT ${TARGETS_EXPORT_NAME}
+  DESTINATION ${CMAKE_INSTALL_PREFIX}/lib
+  )
+
+INSTALL(FILES
+  package.xml
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/booster_robot
+  )
+
+INSTALL(DIRECTORY
+  meshes
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/booster_robot
+  )
+
+INSTALL(DIRECTORY
+  urdf
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/booster_robot
+  )
+
+INSTALL(DIRECTORY
+  srdf
+  DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/booster_robot
+  )

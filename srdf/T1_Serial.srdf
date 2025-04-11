@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<robot>
+  <gripper name="left_gripper" clearance="0.0">
+    <position xyz="0.03 0.22 0" xyzw="0 0 0 1" />
+    <link name="left_hand_link" />
+  </gripper>
+  <gripper name="right_gripper" clearance="0.0">
+    <position xyz="0.03 -0.22 0" xyzw="0 0 0 1" />
+    <link name="right_hand_link" />
+  </gripper>
+</robot>
